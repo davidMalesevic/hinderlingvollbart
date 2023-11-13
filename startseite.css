@@ -1,43 +1,59 @@
 @font-face {
-    font-family: xfiles-modern;
-    src: url(./assets/Xfiles.ttf) format("truetype");
-  }
-  
-  @font-face {
-    font-family: xfiles-spooky;
-    src: url(./assets/x-files.ttf) format("truetype");
-  }
-  
-  body {
-    background-image: url(./assets/background.png);
-    color: white;
-    font-family: xfiles-spooky;
-    margin-top: 450px;
-    background-repeat: no-repeat;
-    font-size: 20px;
-  }
-  
-  p {
-    max-width: 400px;
-    line-height: 1.5em;
-    font-family: xfiles-spooky;
-  }
+  font-family: xfiles-modern;
+  src: url(./assets/Xfiles.ttf) format("truetype");
+}
 
-  h1 {
-    font-family: xfiles-spooky;
-  }
+@font-face {
+  font-family: xfiles-spooky;
+  src: url(./assets/x-files.ttf) format("truetype");
+}
 
-  .fails {
-    font-size: 120px;
-    font-family: xfiles-modern;
-    position: absolute;
-    top:140px;
-    left: 380px;
-  }
+body {
+  background-image: url(./assets/background.png);
+  background-position: center;
+  background-size: cover;
+  color: white;
+  font-family: xfiles-spooky;
+  height: 95vh;
 
-  a {
-    padding: 1rem;
-    border: solid 1px white;
-    color: white;
-    display: inline-block;
-  }
+  background-color: black;
+  background-repeat: no-repeat;
+  font-size: 20px;
+}
+
+p {
+  max-width: 400px;
+  font-size: 1.25rem;
+  line-height: 1.5em;
+  font-family: xfiles-spooky;
+}
+
+h1 {
+  font-family: xfiles-spooky;
+}
+
+.fails {
+  margin-left: auto;
+  margin-right: auto;
+
+  font-size: 240px;
+  font-family: xfiles-modern;
+  position: absolute;
+  top: 190px;
+  left: 380px;
+}
+.content {
+  margin-left: auto;
+  margin-right: auto;
+
+  position: absolute;
+  top: 800px;
+  left: 380px;
+}
+
+a {
+  padding: 1rem;
+  border: solid 1px white;
+  color: white;
+  display: inline-block;
+}

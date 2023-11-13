@@ -14,8 +14,11 @@ p {
 
 body {
   font-family: walter;
-  max-width: 1440px;
+  width: 30vw;
   margin: 0;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 4rem;
 }
 
 div {
