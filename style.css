@@ -17,6 +17,10 @@ a {
   display: flex;
 }
 
+.social-telling.rechts {
+  flex-direction: row-reverse;
+}
+
 .social-telling img {
   width: 200px;
   height: auto;
@@ -29,6 +33,10 @@ a {
   padding: 50px;
   width: 345px;
   height: 260px;
+}
+
+.social-telling.rechts div.sprechblase {
+  background-image: url(./assets/sprechblase_rechts.png);
 }
 
 .social-telling div.avatar {
