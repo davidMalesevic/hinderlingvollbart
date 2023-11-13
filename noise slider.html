@@ -70,14 +70,12 @@
                 const normalizedValue = (average / 256) * 100;
 
                 // The louder the microphone input, the more towards 100 the slider moves (doubled movement twice)
-                const mappedValue = normalizedValue * 8; // Adjusted factor for increased movement
+                const mappedValue = normalizedValue * 6; // Adjusted factor for increased movement
                 slider.value = mappedValue;
 
                 // Show/hide the content based on the slider value
                 if (mappedValue >= 31 && mappedValue <= 61) {
                   hideField.style.display = "block";
-                } else {
-                  hideField.style.display = "none";
                 }
               }
 
