@@ -4,12 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Color Detection</title>
+    <link rel="stylesheet" href="color.css">
   </head>
   <body>
     <h1>Color Detection</h1>
     <video id="video" width="640" height="480" autoplay></video>
     <canvas id="canvas" width="640" height="480" style="display: none"></canvas>
     <p id="colorResult">Detected color:</p>
+    <div id="detected-color">
+
+    </div>
     <div>
       <a
         href="google.com"
@@ -47,6 +51,7 @@
         const forwardLink = document.getElementById("forwardLink");
         const backLink = document.getElementById("backLink");
         const blueDiv = document.getElementById("blueDiv");
+        const detectedColor = document.getElementById("detected-color");
 
         if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
           navigator.mediaDevices
@@ -129,9 +134,12 @@
             const averageGreen = totalGreen / totalPixels;
             const averageBlue = totalBlue / totalPixels;
 
-            colorResult.textContent = `Detected color: RGB(${averageRed.toFixed(
+            
+            color=`RGB(${averageRed.toFixed(
               0
-            )}, ${averageGreen.toFixed(0)}, ${averageBlue.toFixed(0)})`;
+            )}, ${averageGreen.toFixed(0)}, ${averageBlue.toFixed(0)})`
+            colorResult.textContent = `Detected color: ${color}`;
+            detectedColor.style.backgroundColor = color;
 
             // Enable links and make them visible for green color
             if (averageGreen > averageRed && averageGreen > averageBlue) {
@@ -170,7 +178,7 @@
         }
 
         video.addEventListener("play", () => {
-          canvas.style.display = "block";
+          // canvas.style.display = "block";
           detectColor();
         });
       });
