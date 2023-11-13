@@ -53,6 +53,10 @@ a {
   background-image: url(./assets/sprechblase_rechts.png);
 }
 
+.social-telling.beide div.sprechblase {
+  background-image: url(./assets/sprechblase_beide.png);
+}
+
 .social-telling div.avatar {
   height: 400px;
   display: flex;
