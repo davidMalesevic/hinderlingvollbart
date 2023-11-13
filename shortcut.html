@@ -6,31 +6,65 @@
     <title>Document</title>
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body style="display: flex; flex-direction: column; width: fit-content;">
+  <body style="display: flex; flex-direction: column; width: fit-content">
     <h1>About Dave...</h1>
     <main class="social-telling">
       <div class="avatar">
-        <img src="./assets/tobi.png" alt="avatar tobi">
+        <img src="./assets/tobi.png" alt="avatar tobi" />
       </div>
       <div class="sprechblase">
-<p class="font-large">Dave Challenged Ideen und strebt immer nach einer noch besseren Idee.</p>
+        <p class="font-large">
+          Dave Challenged Ideen und strebt immer nach einer noch besseren Idee.
+        </p>
       </div>
     </main>
 
-    <h2>Um weiterzufahren, drücke CTRL + ALT + P!</h2>
+    <h2>
+      Um weiterzufahren, halte die tasten "W", "E", "I", "T" und "R" gedrückt
+    </h2>
     <script>
-document.addEventListener('keydown', function (event) {
-  // Überprüfe, ob die Tastenkombination CTRL+SHIFT+I+1 gedrückt wurde
-  if (event.ctrlKey && event.altKey && event.key === 'p') {
-    // Führe hier deine gewünschte Aktion aus
-    console.log('CTRL + ALT + P wurde gedrückt!');
-    // Verhindere, dass der Browser die Standardaktion ausführt (z.B. Öffnen der Entwicklertools)
-    event.preventDefault();
-        // JavaScript-Code, um auf die Seite telefonnummer.html umzuleiten
-        document.location.href = './telefonnummer.html';
+      const requiredKeys = new Set(["W", "E", "I", "T", "R"]);
+      const pressedKeys = new Set();
 
-  }
-});
+      document.addEventListener("keydown", function (event) {
+        // Check if the pressed key is in the set of required keys
+        if (requiredKeys.has(event.key.toUpperCase())) {
+          // Add the pressed key to the set of pressed keys
+          pressedKeys.add(event.key.toUpperCase());
+
+          // Check if all required keys are pressed simultaneously
+          if (isEqualSets(requiredKeys, pressedKeys)) {
+            // Perform your desired action here
+            console.log("All required keys pressed simultaneously!");
+            // Prevent the browser from executing the default action
+            event.preventDefault();
+
+            // Example: JavaScript code to redirect to telefonnummer.html
+            document.location.href = "./telefonnummer.html";
+
+            // Clear the set of pressed keys for the next combination
+            pressedKeys.clear();
+          }
+        }
+      });
+
+      document.addEventListener("keyup", function (event) {
+        // Remove the released key from the set of pressed keys
+        pressedKeys.delete(event.key.toUpperCase());
+      });
+
+      // Function to check if two sets are equal
+      function isEqualSets(set1, set2) {
+        if (set1.size !== set2.size) {
+          return false;
+        }
+        for (const item of set1) {
+          if (!set2.has(item)) {
+            return false;
+          }
+        }
+        return true;
+      }
     </script>
   </body>
 </html>
