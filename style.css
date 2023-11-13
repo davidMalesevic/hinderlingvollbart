@@ -9,12 +9,12 @@ h1 {
 
 p {
   font-family: walter;
-  font-size: small;
+  font-size: 1.25rem;
 }
 
 body {
   font-family: walter;
-  width: 30vw;
+  width: 40vw;
   margin: 0;
   margin-left: auto;
   margin-right: auto;
@@ -63,7 +63,6 @@ a {
 }
 
 .social-telling div.avatar {
-  height: 400px;
   display: flex;
   flex-direction: column;
   justify-content: end;
@@ -71,4 +70,45 @@ a {
 
 .font-large {
   font-size: large;
+}
+
+.bubble {
+  display: inline-block;
+
+  position: relative;
+  padding: 30px 40px;
+  border-radius: 10px;
+  border: 3px solid black;
+  background: white;
+
+  clear: both;
+
+  &:before {
+    content: "";
+    position: absolute;
+    bottom: -50px;
+    height: 50px;
+    width: 90px;
+  }
+
+  &.left {
+    float: left;
+    margin: 10px 100px 160px 10px;
+    &:before {
+      border-radius: 0 0 100%;
+      box-shadow: -2px -2px 0 0 #000 inset, -23px 0 0 0 #fff inset,
+        -25px -2px 0 0 #000 inset;
+      left: 0;
+    }
+  }
+  &.right {
+    float: right;
+    margin: 10px 10px 160px 100px;
+    &:before {
+      border-radius: 0 0 0 100%;
+      box-shadow: 2px -2px 0 0 #000 inset, 23px 0 0 0 #fff inset,
+        25px -2px 0 0 #000 inset;
+      right: 0;
+    }
+  }
 }
