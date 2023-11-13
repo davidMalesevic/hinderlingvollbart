@@ -14,11 +14,17 @@
     font-family: xfiles-spooky;
     margin-top: 450px;
     background-repeat: no-repeat;
+    font-size: 20px;
   }
   
   p {
     max-width: 400px;
     line-height: 1.5em;
+    font-family: xfiles-spooky;
+  }
+
+  h1 {
+    font-family: xfiles-spooky;
   }
 
   .fails {
@@ -27,4 +33,11 @@
     position: absolute;
     top:140px;
     left: 380px;
+  }
+
+  a {
+    padding: 1rem;
+    border: solid 1px white;
+    color: white;
+    display: inline-block;
   }
