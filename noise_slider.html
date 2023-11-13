@@ -52,10 +52,12 @@
                 window.webkitAudioContext)();
               const source = audioContext.createMediaStreamSource(stream);
               const analyser = audioContext.createAnalyser();
+              const gainNode = audioContext.createGain(); // Create a GainNode
 
               // Connect the microphone input to the analyser
               source.connect(analyser);
-              analyser.connect(audioContext.destination);
+              analyser.connect(gainNode); // Connect the analyser to the gain node
+              gainNode.connect(audioContext.destination); // Connect the gain node to the audio context destination
 
               // Set up the analyser
               analyser.fftSize = 512;
@@ -77,6 +79,10 @@
                 if (mappedValue >= 31 && mappedValue <= 61) {
                   hideField.style.display = "block";
                 }
+
+                // Mute the audio output if desired
+                const mute = mappedValue >= 0; // Adjust this threshold as needed
+                gainNode.gain.value = mute ? 0 : 1; // Mute or unmute based on the threshold
               }
 
               // Call the updateSlider function periodically
