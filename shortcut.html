@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body style="display: flex; flex-direction: column; width: fit-content;">
+    <h1>About Dave...</h1>
+    <main class="social-telling">
+      <div class="avatar">
+        <img src="./assets/tobi.png" alt="avatar tobi">
+      </div>
+      <div class="sprechblase">
+<p class="font-large">Dave Challenged Ideen und strebt immer nach einer noch besseren Idee.</p>
+      </div>
+    </main>
+
+    <h2>Um weiterzufahren, drücke CTRL + ALT + P!</h2>
+    <script>
+document.addEventListener('keydown', function (event) {
+  // Überprüfe, ob die Tastenkombination CTRL+SHIFT+I+1 gedrückt wurde
+  if (event.ctrlKey && event.altKey && event.key === 'p') {
+    // Führe hier deine gewünschte Aktion aus
+    console.log('CTRL + ALT + P wurde gedrückt!');
+    // Verhindere, dass der Browser die Standardaktion ausführt (z.B. Öffnen der Entwicklertools)
+    event.preventDefault();
+        // JavaScript-Code, um auf die Seite telefonnummer.html umzuleiten
+        document.location.href = './telefonnummer.html';
+
+  }
+});
+    </script>
+  </body>
+</html>

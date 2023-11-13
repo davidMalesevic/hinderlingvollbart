@@ -4,15 +4,34 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Color Detection</title>
+    <link rel="stylesheet" href="color.css">
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <h1>Color Detection</h1>
-    <video id="video" width="640" height="480" autoplay></video>
-    <canvas id="canvas" width="640" height="480" style="display: none"></canvas>
-    <p id="colorResult">Detected color:</p>
+    <h1>About Tobi...</h1>
+    <main class="social-telling rechts">
+      <div class="avatar">
+        <img src="./assets/tobi.png" alt="avatar tobi">
+      </div>
+      <div class="sprechblase">
+<p class="font-large">Tobias hinterfragt dinge, bleibt dabei aber immer fair</p>
+      </div>
+    </main>
+    <h2>Halte etwas grünes in die Kamera, um weiterzufahren
+    <div style="display: flex; gap:30px;">
+      
+      <video id="video" width="200" autoplay></video>
+      <canvas id="canvas" width="640" height="480" style="display: none"></canvas>
+      <div>
+        <p id="colorResult">Detected color:</p>
+        <div id="detected-color">
+
+        </div>
+      </div>
+    </div>
     <div>
       <a
-        href="google.com"
+        href="./shortcut.html"
         id="forwardLink"
         style="
           display: none;
@@ -47,6 +66,7 @@
         const forwardLink = document.getElementById("forwardLink");
         const backLink = document.getElementById("backLink");
         const blueDiv = document.getElementById("blueDiv");
+        const detectedColor = document.getElementById("detected-color");
 
         if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
           navigator.mediaDevices
@@ -129,29 +149,33 @@
             const averageGreen = totalGreen / totalPixels;
             const averageBlue = totalBlue / totalPixels;
 
-            colorResult.textContent = `Detected color: RGB(${averageRed.toFixed(
+            
+            color=`RGB(${averageRed.toFixed(
               0
-            )}, ${averageGreen.toFixed(0)}, ${averageBlue.toFixed(0)})`;
+            )}, ${averageGreen.toFixed(0)}, ${averageBlue.toFixed(0)})`
+            colorResult.textContent = "Detected Color: ";
+            detectedColor.textContent = color;
+            detectedColor.style.backgroundColor = color;
 
             // Enable links and make them visible for green color
             if (averageGreen > averageRed && averageGreen > averageBlue) {
               enableForwardLink();
-              forwardLink.style.display = "inline";
-              backLink.style.display = "none";
-              blueDiv.style.display = "none";
+              forwardLink.style.display = "inline-block";
+              // backLink.style.display = "none";
+              // blueDiv.style.display = "none";
             }
             // Enable links and make them visible for red color
             else if (averageRed > averageGreen && averageRed > averageBlue) {
               enableBackLink();
-              forwardLink.style.display = "none";
-              backLink.style.display = "inline";
-              blueDiv.style.display = "none";
+              // forwardLink.style.display = "none";
+              backLink.style.display = "inline-block";
+              // blueDiv.style.display = "none";
             }
             // Enable links and make them visible for blue color
             else if (averageBlue > averageRed && averageBlue > averageGreen) {
               disableLinks();
-              forwardLink.style.display = "none";
-              backLink.style.display = "none";
+              // forwardLink.style.display = "none";
+              // backLink.style.display = "none";
               blueDiv.style.display = "block";
             }
             // Disable links if no specific color is detected
@@ -170,7 +194,7 @@
         }
 
         video.addEventListener("play", () => {
-          canvas.style.display = "block";
+          // canvas.style.display = "block";
           detectColor();
         });
       });

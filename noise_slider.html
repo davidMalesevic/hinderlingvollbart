@@ -7,40 +7,41 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1>Text</h1>
-    <div
-      id="hide_this_field"
-      style="padding: 1rem; border: 1px solid black; display: none"
-    >
-      <p>Hier steht wieso wir cool sind.</p>
-
-      <img
-        src="https://upload.wikimedia.org/wikipedia/commons/1/1a/Donkey_in_Clovelly%2C_North_Devon%2C_England.jpg"
-        alt=""
-      />
-    </div>
-    <label for="slider"
-      >Mach Lärm, um zu sehen, warum Tobi ein cooler Typ ist.</label
-    >
+    <h1>About Dave</h1>
+    
+    <label for="slider">Mach Lärm, um herauszufinden, warum die Schüler Dave lieben werden.
+    </label>
     <div style="width: 20vw; display: flex; flex-direction: column">
       <div style="width: 100%; display: flex">
-        <div style="width: 30%; text-align: center; background-color: yellow">
+        <div style="width: 50%; text-align: center; background-color: yellow">
           zu leise
         </div>
-        <div style="width: 40%; text-align: center; background-color: green">
+        <div style="width: 50%; text-align: center; background-color: green">
           perfekt
         </div>
-        <div style="width: 30%; text-align: center; background-color: red">
+        <!-- <div style="width: 30%; text-align: center; background-color: red">
           zu laut
-        </div>
+        </div> -->
       </div>
       <input type="range" id="slider" min="0" max="100" value="0" />
     </div>
-    <a href="camera_input.html">Weiter</a>
+    <div id="hide_this_field"
+      style="padding: 1rem; border: 1px solid black; display: none;margin-top: 2em;">
+    <main class="social-telling">
+      <div class="avatar">
+        <img src="./assets/tobi.png" alt="avatar tobi">
+      </div>
+      <div class="sprechblase">
+<p class="font-large">Mit seinem Schalk, wird Dave auch bei weniger spannenden Themen den Schülern ein lächeln ins Gesicht zaubern.</p>
+      </div>
+    </main>
+    </div>
+    <a href="camera_input.html" style="display: none;" id="linkForward">Weiter</a>
     <script>
       document.addEventListener("DOMContentLoaded", () => {
         const slider = document.getElementById("slider");
         const hideField = document.getElementById("hide_this_field");
+        const linkForward = document.getElementById("linkForward");
 
         // Check if getUserMedia is supported
         if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
@@ -76,8 +77,9 @@
                 slider.value = mappedValue;
 
                 // Show/hide the content based on the slider value
-                if (mappedValue >= 31 && mappedValue <= 61) {
+                if (mappedValue >= 50 && mappedValue <= 61) {
                   hideField.style.display = "block";
+                  linkForward.style.display = "block";
                 }
 
                 // Mute the audio output if desired

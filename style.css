@@ -1,5 +1,65 @@
+@font-face {
+  font-family: walter;
+  src: url(./assets/WalterTurncoat-Regular.ttf) format("truetype");
+}
+
+h1 {
+  font-family: walter;
+}
+
+p {
+  font-family: walter;
+  font-size: small;
+}
+
+body {
+  font-family: walter;
+}
+
+div {
+  box-sizing: border-box;
+}
+
 a {
   padding: 1rem;
   border: solid 1px black;
   margin-top: 0.5rem;
+  display: block;
+}
+
+.social-telling {
+  display: flex;
+}
+
+.social-telling.rechts {
+  flex-direction: row-reverse;
+}
+
+.social-telling img {
+  width: 200px;
+  height: auto;
+  object-fit: contain;
+}
+
+.social-telling div.sprechblase {
+  background-image: url(./assets/sprechblase.png);
+  background-repeat: no-repeat;
+  padding: 50px;
+  width: 345px;
+  height: 260px;
+}
+
+.social-telling.rechts div.sprechblase {
+  background-image: url(./assets/sprechblase_rechts.png);
+}
+
+.social-telling div.avatar {
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
+
+.font-large {
+  font-size: large;
 }
