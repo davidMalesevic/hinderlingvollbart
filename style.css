@@ -1,5 +1,17 @@
+@font-face {
+  font-family: xfiles;
+  src: url(./assets/Xfiles.ttf) format("truetype");
+}
+
 a {
   padding: 1rem;
   border: solid 1px black;
   margin-top: 0.5rem;
+}
+
+
+body {
+  background-image: url(./assets/aktex.png);
+  color: white;
+  font-family: xfiles;
 }
