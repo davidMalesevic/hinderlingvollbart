@@ -3,6 +3,19 @@
   src: url(./assets/WalterTurncoat-Regular.ttf) format("truetype");
 }
 
+h1 {
+  font-family: walter;
+}
+
+p {
+  font-family: walter;
+  font-size: small;
+}
+
+body {
+  font-family: walter;
+}
+
 div {
   box-sizing: border-box;
 }
@@ -44,4 +57,8 @@ a {
   display: flex;
   flex-direction: column;
   justify-content: end;
+}
+
+.font-large {
+  font-size: large;
 }
