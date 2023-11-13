@@ -6,78 +6,73 @@
     <title>Document</title>
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body style="display: flex; flex-direction: column; width: fit-content;">
+  <body style="display: flex; flex-direction: column; width: fit-content">
     <h1>About Tobi...</h1>
     <main class="social-telling rechts">
       <div class="avatar">
-        <img src="./assets/dave.png" alt="avatar dave">
+        <img
+          style="transform: scaleX(-1)"
+          src="./assets/dave.png"
+          alt="avatar dave"
+        />
       </div>
       <div class="sprechblase">
-<p class="font-large">Eine gute Mischung aus Begeisterung und Skepsis für Technologien und Trends</p>
+        <p class="font-large">
+          Eine gute Mischung aus Begeisterung und Skepsis für Technologien und
+          Trends
+        </p>
       </div>
     </main>
     <h2>Wann hast du Geburtstag?</h2>
     <label for="day">Tag</label>
-    <input
-      type="number"
-      min="0"
-      max="31"
-      step="1"
-      value="01"
-    />
+    <input type="number" min="0" max="31" step="1" value="01" />
     <label for="month">Monat</label>
     <form action="">
-        <input type="radio" name="month" id="jan" value="Januar">
-        <label for="jan">Januar</label>
-        
-        <input type="radio" name="month" id="feb" value="Februar">
-        <label for="feb">Februar</label>
-        
-        <input type="radio" name="month" id="mar" value="März">
-        <label for="mar">März</label>
-        
-        <input type="radio" name="month" id="apr" value="April">
-        <label for="apr">April</label>
-        
-        <input type="radio" name="month" id="mai" value="Mai">
-        <label for="mai">Mai</label>
-        
-        <input type="radio" name="month" id="jun" value="Juni">
-        <label for="jun">Juni</label>
-        
-        <input type="radio" name="month" id="jul" value="Juli">
-        <label for="jul">Juli</label>
-        
-        <input type="radio" name="month" id="aug" value="August">
-        <label for="aug">August</label>
-        
-        <input type="radio" name="month" id="sep" value="September">
-        <label for="sep">September</label>
-        
-        <input type="radio" name="month" id="okt" value="Oktober">
-        <label for="okt">Oktober</label>
-        
-        <input type="radio" name="month" id="nov" value="November">
-        <label for="nov">November</label>
-        
-        <input type="radio" name="month" id="dez" value="Dezember">
-        <label for="dez">Dezember</label>
+      <input type="radio" name="month" id="jan" value="Januar" />
+      <label for="jan">Januar</label>
+
+      <input type="radio" name="month" id="feb" value="Februar" />
+      <label for="feb">Februar</label>
+
+      <input type="radio" name="month" id="mar" value="März" />
+      <label for="mar">März</label>
+
+      <input type="radio" name="month" id="apr" value="April" />
+      <label for="apr">April</label>
+
+      <input type="radio" name="month" id="mai" value="Mai" />
+      <label for="mai">Mai</label>
+
+      <input type="radio" name="month" id="jun" value="Juni" />
+      <label for="jun">Juni</label>
+
+      <input type="radio" name="month" id="jul" value="Juli" />
+      <label for="jul">Juli</label>
+
+      <input type="radio" name="month" id="aug" value="August" />
+      <label for="aug">August</label>
+
+      <input type="radio" name="month" id="sep" value="September" />
+      <label for="sep">September</label>
+
+      <input type="radio" name="month" id="okt" value="Oktober" />
+      <label for="okt">Oktober</label>
+
+      <input type="radio" name="month" id="nov" value="November" />
+      <label for="nov">November</label>
+
+      <input type="radio" name="month" id="dez" value="Dezember" />
+      <label for="dez">Dezember</label>
     </form>
     <label for="jahr">Jahr</label>
-    <input
-    type="number"
-    min="1900"
-    max="2024"
-    step="1"
-    value="1900"
-  />
-  <a href="noise_slider.html">Super, hier gehts weiter.</a>
+    <input type="number" min="1900" max="2024" step="1" value="1900" />
+    <a href="noise_slider.html">Super, hier gehts weiter.</a>
     <script>
-document.addEventListener('keydown', event => {
-  console.log(`User pressed: ${event.key}`);
-  event.preventDefault();
-  return false;
-});
+      document.addEventListener("keydown", (event) => {
+        console.log(`User pressed: ${event.key}`);
+        event.preventDefault();
+        return false;
+      });
     </script>
   </body>
 </html>
