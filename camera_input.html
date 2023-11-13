@@ -5,14 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Color Detection</title>
     <link rel="stylesheet" href="color.css">
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <h1>Color Detection</h1>
-    <video id="video" width="640" height="480" autoplay></video>
-    <canvas id="canvas" width="640" height="480" style="display: none"></canvas>
-    <p id="colorResult">Detected color:</p>
-    <div id="detected-color">
+    <h1>About Tobi...</h1>
+    <main class="social-telling rechts">
+      <div class="avatar">
+        <img src="./assets/tobi.png" alt="avatar tobi">
+      </div>
+      <div class="sprechblase">
+<p class="font-large">Tobias hinterfragt dinge, bleibt dabei aber immer fair</p>
+      </div>
+    </main>
+    <h2>Halte etwas grünes in die Kamera, um weiterzufahren
+    <div style="display: flex; gap:30px;">
+      
+      <video id="video" width="200" autoplay></video>
+      <canvas id="canvas" width="640" height="480" style="display: none"></canvas>
+      <div>
+        <p id="colorResult">Detected color:</p>
+        <div id="detected-color">
 
+        </div>
+      </div>
     </div>
     <div>
       <a
@@ -138,13 +153,14 @@
             color=`RGB(${averageRed.toFixed(
               0
             )}, ${averageGreen.toFixed(0)}, ${averageBlue.toFixed(0)})`
-            colorResult.textContent = `Detected color: ${color}`;
+            colorResult.textContent = "Detected Color: ";
+            detectedColor.textContent = color;
             detectedColor.style.backgroundColor = color;
 
             // Enable links and make them visible for green color
             if (averageGreen > averageRed && averageGreen > averageBlue) {
               enableForwardLink();
-              forwardLink.style.display = "inline";
+              forwardLink.style.display = "inline-block";
               // backLink.style.display = "none";
               // blueDiv.style.display = "none";
             }
@@ -152,7 +168,7 @@
             else if (averageRed > averageGreen && averageRed > averageBlue) {
               enableBackLink();
               // forwardLink.style.display = "none";
-              backLink.style.display = "inline";
+              backLink.style.display = "inline-block";
               // blueDiv.style.display = "none";
             }
             // Enable links and make them visible for blue color
