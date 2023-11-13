@@ -1,3 +1,8 @@
+@font-face {
+  font-family: walter;
+  src: url(./assets/WalterTurncoat-Regular.ttf) format("truetype");
+}
+
 div {
   box-sizing: border-box;
 }

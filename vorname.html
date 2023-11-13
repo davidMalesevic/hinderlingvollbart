@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="vorname.css">
   </head>
   <body style="display: flex; flex-direction: column; width: fit-content;">
     <h1>About Dave...</h1>
@@ -19,7 +20,7 @@
     </main>
 
     <h2>Um weiterzufahren, verrate uns bitte, wie du heisst!</h2>
-    <select name="names" id="">
+    <select name="names" id="name-select">
 <option>Aaliyah</option>
 <option>Aaltje</option>
 <option>Aaron</a></option>
@@ -5188,11 +5189,20 @@
 
   <a href="worst_form.html" id="linkForward">Super, hier gehts weiter.</a>
     <script>
-document.addEventListener('keydown', event => {
-  console.log(`User pressed: ${event.key}`);
-  event.preventDefault();
-  return false;
-});
+// document.addEventListener('keydown', event => {
+//   console.log(`User pressed: ${event.key}`);
+//   event.preventDefault();
+//   return false;
+// });
+let select = document.getElementById("name-select");
+select.addEventListener('change', event => {
+  console.log('selected');
+  let linkForward = document.getElementById("linkForward");
+  console.log(event);
+  let name=event.target[select.selectedIndex].text;
+  linkForward.textContent = `Super ${name}, hier geht es weiter`
+  linkForward.style.display="block";
+})
     </script>
   </body>
 </html>

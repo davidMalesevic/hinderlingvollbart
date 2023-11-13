@@ -1,3 +1,16 @@
 #linkForward {
     display: none;
 }
+
+h1 {
+    font-family: walter;
+}
+
+p {
+    font-family: walter;
+    font-size: small;
+}
+
+body {
+    font-family: walter;
+}
