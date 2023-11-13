@@ -24,15 +24,15 @@
     >
     <div style="width: 20vw; display: flex; flex-direction: column">
       <div style="width: 100%; display: flex">
-        <div style="width: 30%; text-align: center; background-color: yellow">
+        <div style="width: 50%; text-align: center; background-color: yellow">
           zu leise
         </div>
-        <div style="width: 40%; text-align: center; background-color: green">
+        <div style="width: 50%; text-align: center; background-color: green">
           perfekt
         </div>
-        <div style="width: 30%; text-align: center; background-color: red">
+        <!-- <div style="width: 30%; text-align: center; background-color: red">
           zu laut
-        </div>
+        </div> -->
       </div>
       <input type="range" id="slider" min="0" max="100" value="0" />
     </div>
@@ -76,7 +76,7 @@
                 slider.value = mappedValue;
 
                 // Show/hide the content based on the slider value
-                if (mappedValue >= 31 && mappedValue <= 61) {
+                if (mappedValue >= 50 && mappedValue <= 61) {
                   hideField.style.display = "block";
                 }
 

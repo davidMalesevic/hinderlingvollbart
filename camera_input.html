@@ -137,21 +137,21 @@
             if (averageGreen > averageRed && averageGreen > averageBlue) {
               enableForwardLink();
               forwardLink.style.display = "inline";
-              backLink.style.display = "none";
-              blueDiv.style.display = "none";
+              // backLink.style.display = "none";
+              // blueDiv.style.display = "none";
             }
             // Enable links and make them visible for red color
             else if (averageRed > averageGreen && averageRed > averageBlue) {
               enableBackLink();
-              forwardLink.style.display = "none";
+              // forwardLink.style.display = "none";
               backLink.style.display = "inline";
-              blueDiv.style.display = "none";
+              // blueDiv.style.display = "none";
             }
             // Enable links and make them visible for blue color
             else if (averageBlue > averageRed && averageBlue > averageGreen) {
               disableLinks();
-              forwardLink.style.display = "none";
-              backLink.style.display = "none";
+              // forwardLink.style.display = "none";
+              // backLink.style.display = "none";
               blueDiv.style.display = "block";
             }
             // Disable links if no specific color is detected

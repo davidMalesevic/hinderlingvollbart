@@ -1,6 +1,5 @@
-@font-face {
-  font-family: xfiles;
-  src: url(./assets/Xfiles.ttf) format("truetype");
+div {
+  box-sizing: border-box;
 }
 
 a {
@@ -9,9 +8,27 @@ a {
   margin-top: 0.5rem;
 }
 
+.social-telling {
+  display: flex;
+}
 
-body {
-  background-image: url(./assets/aktex.png);
-  color: white;
-  font-family: xfiles;
+.social-telling img {
+  width: 200px;
+  height: auto;
+  object-fit: contain;
+}
+
+.social-telling div.sprechblase {
+  background-image: url(./assets/sprechblase.png);
+  background-repeat: no-repeat;
+  padding: 50px;
+  width: 345px;
+  height: 260px;
+}
+
+.social-telling div.avatar {
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
 }
