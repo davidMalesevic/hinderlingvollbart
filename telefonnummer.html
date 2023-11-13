@@ -24,9 +24,13 @@
     <h2>Um weiterzufahren, wähle deine Telefonnummer</h2>
     <input type="range" min="1" max="9999999999" value="50" class="slider" id="telefonnummer">
     <span id="sliderValue">50</span>
+    <a href="schluss.html" style="display: none;" id="linkForward">Weiter</a>
     <script>
 // Funktion, um den aktuellen Wert des Sliders anzuzeigen und zu aktualisieren
 function updateSliderValue() {
+    // Link einblenden
+    var linkForward = document.getElementById("linkForward");
+    linkForward.style.display = "block";  
   // Den Slider-Wert abrufen
   var slider = document.getElementById("telefonnummer");
   var sliderValue = slider.value;
