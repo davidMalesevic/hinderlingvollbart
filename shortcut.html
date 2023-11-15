@@ -14,7 +14,10 @@
       </div>
       <div class="bubble left">
         <p class="font-large">
-          Dave Challenged Ideen und strebt immer nach einer noch besseren Idee.
+          Dave als Dozent wird sicherstellen, dass der Unterricht nie langweilig wird. 
+        </p>
+        <p>
+          Mit seinem Schalk, wird Dave auch bei weniger spannenden Themen den Schülern ein lächeln ins Gesicht zaubern.
         </p>
       </div>
     </main>
@@ -27,10 +30,13 @@
       const pressedKeys = new Set();
 
       document.addEventListener("keydown", function (event) {
+        console.log(event);
+        const keyPressed = event.key.toUpperCase();
         // Check if the pressed key is in the set of required keys
-        if (requiredKeys.has(event.key.toUpperCase())) {
+        if (requiredKeys.has(keyPressed) && !pressedKeys.has(keyPressed)) {
           // Add the pressed key to the set of pressed keys
-          pressedKeys.add(event.key.toUpperCase());
+          pressedKeys.add(keyPressed);
+          console.log(pressedKeys);
 
           // Check if all required keys are pressed simultaneously
           if (isEqualSets(requiredKeys, pressedKeys)) {
@@ -50,7 +56,7 @@
 
       document.addEventListener("keyup", function (event) {
         // Remove the released key from the set of pressed keys
-        pressedKeys.delete(event.key.toUpperCase());
+        // pressedKeys.delete(event.key.toUpperCase());
       });
 
       // Function to check if two sets are equal
