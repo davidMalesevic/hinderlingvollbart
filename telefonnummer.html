@@ -73,32 +73,55 @@
 
     <a href="schluss.html" style="display: none" id="linkForward">Weiter</a>
     <script>
+      // Function triggered when sliders are updated
       function updateSliderValue() {
-        // Den Slider-Wert abrufen und anzeigen
-        var vorwahl = document.getElementById("vorwahl");
-        var block1 = document.getElementById("block1");
-        var block2 = document.getElementById("block2");
-        var block3 = document.getElementById("block3");
+        // Array containing slider elements
+        const sliders = [
+          document.getElementById("vorwahl"),
+          document.getElementById("block1"),
+          document.getElementById("block2"),
+          document.getElementById("block3"),
+        ];
 
-        var linkForward = document.getElementById("linkForward");
+        // Element representing the forward link
+        const linkForward = document.getElementById("linkForward");
+
+        // IDs of elements representing slider outputs
+        const sliderOutputs = [
+          "vw-output",
+          "b1-output",
+          "b2-output",
+          "b3-output",
+        ];
 
         // Check if all sliders have values greater than 0
-        if (
-          vorwahl.value > 0 &&
-          block1.value > 0 &&
-          block2.value > 0 &&
-          block3.value > 0
-        ) {
-          linkForward.style.display = "block";
-        } else {
-          linkForward.style.display = "none";
-        }
+        const allSlidersValid = sliders.every((slider) => slider.value > 0);
+        linkForward.style.display = allSlidersValid ? "block" : "none";
 
-        // Update slider outputs
-        document.getElementById("vw-output").textContent = "0" + vorwahl.value;
-        document.getElementById("b1-output").textContent = block1.value;
-        document.getElementById("b2-output").textContent = block2.value;
-        document.getElementById("b3-output").textContent = block3.value;
+        // Update slider output values
+        updateOutputs(sliders, sliderOutputs);
+      }
+
+      // Function to update slider output elements with corresponding slider values
+      function updateOutputs(sliders, outputIds) {
+        sliders.forEach((slider, index) => {
+          const output = document.getElementById(outputIds[index]);
+          const formattedValue = formatSliderValue(
+            slider.value,
+            outputIds[index]
+          );
+          output.textContent = formattedValue;
+        });
+      }
+
+      // Function to format slider values with leading zeros based on output IDs
+      function formatSliderValue(value, outputId) {
+        // Determine length based on output ID
+        const length =
+          outputId === "vw-output" ? 3 : outputId === "b1-output" ? 3 : 2;
+        const stringValue = String(value);
+        const zerosToAdd = Math.max(0, length - stringValue.length);
+        return "0".repeat(zerosToAdd) + stringValue;
       }
 
       // Event listeners for the "input" event on each slider
