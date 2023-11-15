@@ -28,37 +28,114 @@
     </main>
 
     <h2>Um weiterzufahren, wähle deine Telefonnummer</h2>
+    <label for="vorwahl">Vorwahl</label>
     <input
       type="range"
-      min="1"
-      max="9999999999"
-      value="50"
+      min="010"
+      max="099"
+      value="0"
       class="slider"
-      id="telefonnummer"
+      id="vorwahl"
     />
-    <span id="sliderValue">50</span>
+    <label for="block1">Telefonnummer Block 1:</label>
+    <input
+      type="range"
+      min="000"
+      max="999"
+      value="0"
+      class="slider"
+      id="block1"
+    />
+    <label for="block2">Telefonnummer Block 2:</label>
+    <input
+      type="range"
+      min="00"
+      max="99"
+      value="0"
+      class="slider"
+      id="block2"
+    />
+    <label for="block3">Telefonnummer Block 3:</label>
+    <input
+      type="range"
+      min="00"
+      max="99"
+      value="0"
+      class="slider"
+      id="block3"
+    />
+    <p>
+      <span id="vw-output">000</span>
+      <span id="b1-output">000</span>
+      <span id="b2-output">00</span>
+      <span id="b3-output">00</span>
+    </p>
+
     <a href="schluss.html" style="display: none" id="linkForward">Weiter</a>
     <script>
-      // Funktion, um den aktuellen Wert des Sliders anzuzeigen und zu aktualisieren
+      // Function triggered when sliders are updated
       function updateSliderValue() {
-        // Link einblenden
-        var linkForward = document.getElementById("linkForward");
-        linkForward.style.display = "block";
-        // Den Slider-Wert abrufen
-        var slider = document.getElementById("telefonnummer");
-        var sliderValue = slider.value;
+        // Array containing slider elements
+        const sliders = [
+          document.getElementById("vorwahl"),
+          document.getElementById("block1"),
+          document.getElementById("block2"),
+          document.getElementById("block3"),
+        ];
 
-        // Den Wert anzeigen (hier wird er in einem Span-Element mit der ID "sliderValue" angezeigt)
-        var output = document.getElementById("sliderValue");
-        output.textContent = sliderValue;
+        // Element representing the forward link
+        const linkForward = document.getElementById("linkForward");
 
-        // Du kannst den Wert auch für andere Zwecke verwenden, z.B. in einer Variable speichern oder weiterverarbeiten
-        // Beispiel: alert("Slider-Wert: " + sliderValue);
+        // IDs of elements representing slider outputs
+        const sliderOutputs = [
+          "vw-output",
+          "b1-output",
+          "b2-output",
+          "b3-output",
+        ];
+
+        // Check if all sliders have values greater than 0
+        const allSlidersValid = sliders.every((slider) => slider.value > 0);
+        linkForward.style.display = allSlidersValid ? "block" : "none";
+
+        // Update slider output values
+        updateOutputs(sliders, sliderOutputs);
       }
 
-      // Event-Listener für das "input"-Ereignis hinzufügen, um die Funktion bei jeder Änderung des Sliders aufzurufen
+      // Function to update slider output elements with corresponding slider values
+      function updateOutputs(sliders, outputIds) {
+        sliders.forEach((slider, index) => {
+          const output = document.getElementById(outputIds[index]);
+          const formattedValue = formatSliderValue(
+            slider.value,
+            outputIds[index]
+          );
+          output.textContent = formattedValue;
+        });
+      }
+
+      // Function to format slider values with leading zeros based on output IDs
+      function formatSliderValue(value, outputId) {
+        // Determine length based on output ID
+        const length =
+          outputId === "vw-output" ? 3 : outputId === "b1-output" ? 3 : 2;
+        const stringValue = String(value);
+        const zerosToAdd = Math.max(0, length - stringValue.length);
+        return "0".repeat(zerosToAdd) + stringValue;
+      }
+
+      // Event listeners for the "input" event on each slider
       document
-        .getElementById("telefonnummer")
+        .getElementById("vorwahl")
+        .addEventListener("input", updateSliderValue);
+      document
+        .getElementById("block1")
+        .addEventListener("input", updateSliderValue);
+      document
+        .getElementById("block2")
+        .addEventListener("input", updateSliderValue);
+      document
+        .getElementById("block3")
         .addEventListener("input", updateSliderValue);
     </script>
   </body>
